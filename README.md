@@ -31,6 +31,7 @@ Demostrar el ataque ARP Spoofing para lograr un Man-in-the-Middle (MitM): el ata
 sudo python3 arp_mitm.py -v 192.168.1.10 -g 192.168.1.1
 sudo python3 arp_mitm.py -v 192.168.1.10 -g 192.168.1.1 -i eth1 --interval 1.0
 ```
+![Texto alternativo](https://github.com/DarkyGhost107/network-security-arp-mitm/blob/main/screenshots/ejemplo%20mitm.png)
 
 ## 4. Requisitos
 
@@ -58,13 +59,7 @@ DURANTE: Victima ─ Atacante (MitM) ─ Gateway
 
 ## 6. Topologia de Red (GNS3)
 
-```
-+──────────────+    +─────────────────+    +──────────────+
-|   VICTIMA    |    |    ATACANTE     |    |   GATEWAY    |
-| 192.168.1.10 |<-->| 192.168.1.50   |<-->| 192.168.1.1  |
-+-─────────────+    | (MitM activo)  |    +-─────────────+
-                    +-─────────────--+
-```
+![Texto alternativo](https://github.com/DarkyGhost107/network-security-arp-mitm/blob/main/screenshots/topologia%20arp.png)
 
 ### Direccionamiento IP
 
@@ -74,22 +69,7 @@ DURANTE: Victima ─ Atacante (MitM) ─ Gateway
 | Atacante (Kali) | 192.168.1.50/24 | Maquina atacante |
 | Gateway | 192.168.1.1/24 | Router |
 
-## 7. Capturas de Pantalla
-
-Coloca tus capturas en `screenshots/`:
-- `screenshots/arp_cache_before.png` - Cache ARP antes del ataque
-- `screenshots/arp_attack_running.png` - Script ejecutandose
-- `screenshots/arp_cache_poisoned.png` - Cache ARP envenenada
-- `screenshots/wireshark_capture.png` - Wireshark capturando trafico
-
-```bash
-# Verificar en la victima (Linux)
-ip neigh show
-# Verificar en la victima (Windows)
-arp -a
-```
-
-## 8. Contramedidas
+## 7. Contramedidas
 
 | Contramedida | Comando Cisco IOS | Descripcion |
 |---|---|---|
@@ -107,10 +87,14 @@ interface GigabitEthernet0/2
  ip arp inspection limit rate 100
 ```
 
-## 9. Referencias
+## 8. Referencias
 
 - [MITRE ATT&CK T1557.002 - ARP Cache Poisoning](https://attack.mitre.org/techniques/T1557/002/)
 - [RFC 826 - Address Resolution Protocol](https://datatracker.ietf.org/doc/html/rfc826)
+
+## 9.Enlace:
+Video: https://youtu.be/YeEULVo7HAI
+
 
 ---
 *Laboratorio de Seguridad de Redes | GNS3 | Uso educativo exclusivo*
